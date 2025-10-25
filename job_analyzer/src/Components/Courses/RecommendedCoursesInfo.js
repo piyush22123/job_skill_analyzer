@@ -1,0 +1,655 @@
+const RecommendedCoursesInfo = [
+  // Programming Languages
+  {
+    name: "Learn JavaScript - Codecademy",
+    skill: "JavaScript",
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/introduction-to-javascript",
+  },
+  {
+    name: "Learn TypeScript: Fundamentals",
+    skill: "TypeScript", 
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-typescript-fundamentals",
+  },
+  {
+    name: "Python for Beginners - AWS",
+    skill: "Python",
+    price: "FREE", 
+    link: "https://www.coursera.org/learn/developing-applications-in-python-on-aws",
+  },
+  {
+    name: "Free Java Course - Scaler",
+    skill: "Java",
+    price: "FREE",
+    link: "https://www.scaler.com/topics/course/java-beginners/",
+  },
+  {
+    name: "Learn C: Introduction",
+    skill: "C",
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-c-introduction",
+  },
+  {
+    name: "Learn C++ - Codecademy", 
+    skill: "C++",
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-c-plus-plus",
+  },
+  {
+    name: "Learn C# (C Sharp)",
+    skill: "C#",
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-c-sharp",
+  },
+  {
+    name: "Learn Go: Fundamentals",
+    skill: "Go",
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-go-fundamentals",
+  },
+  {
+    name: "Rust for Programmers",
+    skill: "Rust",
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/rust-for-programmers",
+  },
+  {
+    name: "Learn PHP: Introduction",
+    skill: "PHP",
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-php-introduction",
+  },
+  {
+    name: "Learn Ruby",
+    skill: "Ruby", 
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-ruby",
+  },
+  {
+    name: "Learn Kotlin",
+    skill: "Kotlin",
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-kotlin",
+  },
+  {
+    name: "Learn Swift: Introduction",
+    skill: "Swift",
+    price: "FREE", 
+    link: "https://www.codecademy.com/learn/learn-swift-introduction",
+  },
+  {
+    name: "Functional Programming in Scala - Coursera",
+    skill: "Scala",
+    price: "FREE",
+    link: "https://www.coursera.org/learn/progfun1",
+  },
+  
+  // Web Development
+  {
+    name: "Learn HTML",
+    skill: "HTML",
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-html",
+  },
+  {
+    name: "Learn CSS",
+    skill: "CSS", 
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-css",
+  },
+  {
+    name: "Learn React: Introduction",
+    skill: "React",
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-react-introduction",
+  },
+  {
+    name: "Angular Tutorial - Great Learning",
+    skill: "Angular",
+    price: "FREE", 
+    link: "https://www.youtube.com/watch?v=JWhRMyyF7nc",
+  },
+  {
+    name: "Learn Vue.js",
+    skill: "Vue.js",
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-vue-js",
+  },
+  {
+    name: "Svelte Tutorial - Official",
+    skill: "Svelte",
+    price: "FREE",
+    link: "https://svelte.dev/tutorial/basics",
+  },
+  {
+    name: "Next.js Tutorial - Official",
+    skill: "Next.js", 
+    price: "FREE",
+    link: "https://nextjs.org/learn",
+  },
+  {
+    name: "Nuxt.js Guide - Official",
+    skill: "Nuxt.js",
+    price: "FREE",
+    link: "https://nuxtjs.org/docs/get-started/installation",
+  },
+  {
+    name: "Learn Node.js: Fundamentals",
+    skill: "Node.js",
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-nodejs-fundamentals",
+  },
+  {
+    name: "Learn Express",
+    skill: "Express",
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-express",
+  },
+  {
+    name: "Django Tutorial - Great Learning",
+    skill: "Django",
+    price: "FREE",
+    link: "https://www.youtube.com/watch?v=LoJ67Ik6ynM",
+  },
+  {
+    name: "Flask Tutorial - Official",
+    skill: "Flask",
+    price: "FREE",
+    link: "https://flask.palletsprojects.com/en/2.0.x/tutorial/",
+  },
+  {
+    name: "Spring Boot Tutorial - Official",
+    skill: "Spring Boot",
+    price: "FREE", 
+    link: "https://spring.io/guides/gs/spring-boot/",
+  },
+  {
+    name: "ASP.NET Core Tutorial - Microsoft",
+    skill: "ASP.NET",
+    price: "FREE",
+    link: "https://docs.microsoft.com/en-us/aspnet/core/getting-started/",
+  },
+  {
+    name: "Laravel Bootcamp - Official",
+    skill: "Laravel",
+    price: "FREE",
+    link: "https://bootcamp.laravel.com/",
+  },
+  
+  // Mobile Development
+  {
+    name: "Learn React Native",
+    skill: "React Native",
+    price: "FREE",
+    link: "https://www.codecademy.com/learn/learn-react-native",
+  },
+  {
+    name: "Flutter Tutorial - Official",
+    skill: "Flutter",
+    price: "FREE",
+    link: "https://flutter.dev/docs/get-started/codelab",
+  },
+  {
+    name: "Android Development - Google",
+    skill: "Android", 
+    price: "FREE",
+    link: "https://developer.android.com/courses",
+  },
+  {
+    name: "iOS Development - Apple",
+    skill: "iOS",
+    price: "FREE",
+    link: "https://developer.apple.com/tutorials/app-dev-training",
+  },
+  {
+    name: "SwiftUI Tutorial - Apple",
+    skill: "SwiftUI",
+    price: "FREE",
+    link: "https://developer.apple.com/tutorials/swiftui",
+  },
+  {
+    name: "Xamarin Tutorial - Microsoft",
+    skill: "Xamarin",
+    price: "FREE",
+    link: "https://docs.microsoft.com/en-us/xamarin/get-started/",
+  },
+  
+  // Databases
+  {
+    name: "SQL Tutorial - W3Schools",
+    skill: "SQL",
+    price: "FREE",
+    link: "https://www.w3schools.com/sql/",
+  },
+  {
+    name: "MySQL Tutorial - Official",
+    skill: "MySQL",
+    price: "FREE", 
+    link: "https://dev.mysql.com/doc/mysql-tutorial-excerpt/8.0/en/",
+  },
+  {
+    name: "PostgreSQL Tutorial - Official",
+    skill: "PostgreSQL",
+    price: "FREE",
+    link: "https://www.postgresql.org/docs/current/tutorial.html",
+  },
+  {
+    name: "Oracle Database Tutorial",
+    skill: "Oracle",
+    price: "FREE",
+    link: "https://docs.oracle.com/en/database/oracle/oracle-database/19/tutorial/",
+  },
+  {
+    name: "MongoDB University",
+    skill: "MongoDB",
+    price: "FREE",
+    link: "https://university.mongodb.com/",
+  },
+  {
+    name: "Redis University",
+    skill: "Redis",
+    price: "FREE",
+    link: "https://university.redislabs.com/",
+  },
+  {
+    name: "Cassandra Tutorial - DataStax",
+    skill: "Cassandra",
+    price: "FREE",
+    link: "https://www.datastax.com/learn/cassandra-fundamentals",
+  },
+  {
+    name: "Firebase Tutorial - Google",
+    skill: "Firebase",
+    price: "FREE",
+    link: "https://firebase.google.com/codelabs/",
+  },
+  {
+    name: "SQLite Tutorial - Official",
+    skill: "SQLite",
+    price: "FREE",
+    link: "https://www.sqlite.org/quickstart.html",
+  },
+  
+  // Cloud & DevOps
+  {
+    name: "AWS Cloud Essentials",
+    skill: "AWS",
+    price: "FREE",
+    link: "https://aws.amazon.com/training/digital/",
+  },
+  {
+    name: "Azure Fundamentals - Microsoft",
+    skill: "Azure",
+    price: "FREE",
+    link: "https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/",
+  },
+  {
+    name: "Google Cloud Skills Boost",
+    skill: "Google Cloud",
+    price: "FREE",
+    link: "https://www.cloudskillsboost.google/",
+  },
+  {
+    name: "Google Cloud Platform Tutorial",
+    skill: "GCP",
+    price: "FREE",
+    link: "https://cloud.google.com/docs/get-started",
+  },
+  {
+    name: "Docker Tutorial - Official",
+    skill: "Docker",
+    price: "FREE",
+    link: "https://docs.docker.com/get-started/",
+  },
+  {
+    name: "Kubernetes Basics - Official",
+    skill: "Kubernetes",
+    price: "FREE",
+    link: "https://kubernetes.io/docs/tutorials/kubernetes-basics/",
+  },
+  {
+    name: "Terraform Tutorial - HashiCorp",
+    skill: "Terraform",
+    price: "FREE",
+    link: "https://learn.hashicorp.com/terraform",
+  },
+  {
+    name: "Jenkins Tutorial - Official",
+    skill: "Jenkins",
+    price: "FREE",
+    link: "https://www.jenkins.io/doc/tutorials/",
+  },
+  {
+    name: "GitLab CI/CD Tutorial - Official",
+    skill: "GitLab CI/CD",
+    price: "FREE",
+    link: "https://docs.gitlab.com/ee/ci/quick_start/",
+  },
+  {
+    name: "GitHub Actions Tutorial - GitHub",
+    skill: "GitHub Actions",
+    price: "FREE",
+    link: "https://docs.github.com/en/actions/learn-github-actions",
+  },
+  {
+    name: "Ansible Tutorial - Red Hat",
+    skill: "Ansible",
+    price: "FREE",
+    link: "https://www.redhat.com/en/services/training/do007-ansible-essentials-simplicity-automation-technical-overview",
+  },
+  {
+    name: "OpenShift Tutorial - Red Hat",
+    skill: "OpenShift",
+    price: "FREE",
+    link: "https://learn.openshift.com/",
+  },
+  
+  // Version Control & Tools
+  {
+    name: "Git Tutorial - Atlassian",
+    skill: "Git",
+    price: "FREE",
+    link: "https://www.atlassian.com/git/tutorials",
+  },
+  {
+    name: "GitHub Skills",
+    skill: "GitHub",
+    price: "FREE",
+    link: "https://skills.github.com/",
+  },
+  {
+    name: "GitLab Tutorial - Official",
+    skill: "GitLab",
+    price: "FREE",
+    link: "https://docs.gitlab.com/ee/tutorials/",
+  },
+  {
+    name: "Bitbucket Tutorial - Atlassian",
+    skill: "Bitbucket",
+    price: "FREE",
+    link: "https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud",
+  },
+  {
+    name: "Linux Command Line - FreeCodeCamp",
+    skill: "Linux",
+    price: "FREE",
+    link: "https://www.freecodecamp.org/news/the-linux-commands-handbook/",
+  },
+  {
+    name: "Bash Scripting Tutorial",
+    skill: "Bash",
+    price: "FREE",
+    link: "https://linuxconfig.org/bash-scripting-tutorial-for-beginners",
+  },
+  {
+    name: "Shell Scripting Tutorial",
+    skill: "Shell Scripting",
+    price: "FREE",
+    link: "https://www.shellscript.sh/",
+  },
+  
+  // Testing & QA
+  {
+    name: "JUnit Tutorial - Official",
+    skill: "JUnit",
+    price: "FREE",
+    link: "https://junit.org/junit5/docs/current/user-guide/",
+  },
+  {
+    name: "Selenium Tutorial - Official",
+    skill: "Selenium",
+    price: "FREE",
+    link: "https://selenium-python.readthedocs.io/",
+  },
+  {
+    name: "Cypress Tutorial - Official",
+    skill: "Cypress",
+    price: "FREE",
+    link: "https://docs.cypress.io/guides/getting-started/installing-cypress",
+  },
+  {
+    name: "Jest Tutorial - Official",
+    skill: "Jest",
+    price: "FREE",
+    link: "https://jestjs.io/docs/getting-started",
+  },
+  {
+    name: "Mocha Tutorial - Official",
+    skill: "Mocha",
+    price: "FREE",
+    link: "https://mochajs.org/#getting-started",
+  },
+  {
+    name: "Chai Tutorial - Official",
+    skill: "Chai",
+    price: "FREE",
+    link: "https://www.chaijs.com/guide/",
+  },
+  {
+    name: "PyTest Tutorial - Official",
+    skill: "PyTest",
+    price: "FREE",
+    link: "https://docs.pytest.org/en/latest/getting-started.html",
+  },
+  {
+    name: "Postman Tutorial - Official",
+    skill: "Postman",
+    price: "FREE",
+    link: "https://learning.postman.com/docs/getting-started/introduction/",
+  },
+  {
+    name: "Cucumber Tutorial - Official",
+    skill: "Cucumber",
+    price: "FREE",
+    link: "https://cucumber.io/docs/guides/10-minute-tutorial/",
+  },
+  
+  // Data Science & Machine Learning
+  {
+    name: "NumPy Tutorial - Official",
+    skill: "NumPy",
+    price: "FREE",
+    link: "https://numpy.org/learn/",
+  },
+  {
+    name: "Pandas Tutorial - Official",
+    skill: "Pandas",
+    price: "FREE",
+    link: "https://pandas.pydata.org/docs/getting_started/intro_tutorials/",
+  },
+  {
+    name: "Matplotlib Tutorial - Official",
+    skill: "Matplotlib",
+    price: "FREE",
+    link: "https://matplotlib.org/stable/tutorials/index.html",
+  },
+  {
+    name: "Seaborn Tutorial - Official",
+    skill: "Seaborn",
+    price: "FREE",
+    link: "https://seaborn.pydata.org/tutorial.html",
+  },
+  {
+    name: "Scikit-learn Tutorial - Official",
+    skill: "Scikit-learn",
+    price: "FREE",
+    link: "https://scikit-learn.org/stable/tutorial/index.html",
+  },
+  {
+    name: "TensorFlow Tutorial - Official",
+    skill: "TensorFlow",
+    price: "FREE",
+    link: "https://www.tensorflow.org/tutorials",
+  },
+  {
+    name: "PyTorch Tutorial - Official",
+    skill: "PyTorch",
+    price: "FREE",
+    link: "https://pytorch.org/tutorials/",
+  },
+  {
+    name: "Keras Tutorial - Official",
+    skill: "Keras",
+    price: "FREE",
+    link: "https://keras.io/getting_started/",
+  },
+  {
+    name: "OpenCV Tutorial - Official",
+    skill: "OpenCV",
+    price: "FREE",
+    link: "https://docs.opencv.org/4.x/d9/df8/tutorial_root.html",
+  },
+  {
+    name: "NLTK Tutorial - Official",
+    skill: "NLTK",
+    price: "FREE",
+    link: "https://www.nltk.org/book/",
+  },
+  {
+    name: "spaCy Tutorial - Official",
+    skill: "Spacy",
+    price: "FREE",
+    link: "https://spacy.io/usage/spacy-101",
+  },
+  
+  // Big Data & Analytics
+  {
+    name: "Hadoop Tutorial - Apache",
+    skill: "Hadoop",
+    price: "FREE",
+    link: "https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html",
+  },
+  {
+    name: "Spark Tutorial - Apache",
+    skill: "Spark",
+    price: "FREE",
+    link: "https://spark.apache.org/docs/latest/quick-start.html",
+  },
+  {
+    name: "Hive Tutorial - Apache",
+    skill: "Hive",
+    price: "FREE",
+    link: "https://cwiki.apache.org/confluence/display/Hive/Tutorial",
+  },
+  {
+    name: "Kafka Tutorial - Apache",
+    skill: "Kafka",
+    price: "FREE",
+    link: "https://kafka.apache.org/quickstart",
+  },
+  {
+    name: "Airflow Tutorial - Apache",
+    skill: "Airflow",
+    price: "FREE",
+    link: "https://airflow.apache.org/docs/apache-airflow/stable/tutorial.html",
+  },
+  {
+    name: "Snowflake Tutorial - Official",
+    skill: "Snowflake",
+    price: "FREE",
+    link: "https://quickstarts.snowflake.com/",
+  },
+  {
+    name: "Databricks Tutorial - Official",
+    skill: "Databricks",
+    price: "FREE",
+    link: "https://docs.databricks.com/getting-started/tutorials/index.html",
+  },
+  
+  // Cybersecurity
+  {
+    name: "Penetration Testing - Cybrary",
+    skill: "Penetration Testing",
+    price: "FREE",
+    link: "https://www.cybrary.it/course/ethical-hacking/",
+  },
+  {
+    name: "OWASP Top 10 - Official",
+    skill: "OWASP",
+    price: "FREE",
+    link: "https://owasp.org/www-project-top-ten/",
+  },
+  {
+    name: "Burp Suite Tutorial - PortSwigger",
+    skill: "Burp Suite",
+    price: "FREE",
+    link: "https://portswigger.net/burp/documentation/desktop/getting-started",
+  },
+  {
+    name: "Wireshark Tutorial - Official",
+    skill: "Wireshark",
+    price: "FREE",
+    link: "https://www.wireshark.org/docs/wsug_html_chunked/",
+  },
+  {
+    name: "Metasploit Tutorial - Offensive Security",
+    skill: "Metasploit",
+    price: "FREE",
+    link: "https://www.offensive-security.com/metasploit-unleashed/",
+  },
+  {
+    name: "Kali Linux Tutorial - Official",
+    skill: "Kali Linux",
+    price: "FREE",
+    link: "https://www.kali.org/docs/",
+  },
+  
+  // Others
+  {
+    name: "REST API Tutorial - RESTfulAPI.net",
+    skill: "REST API",
+    price: "FREE",
+    link: "https://restfulapi.net/",
+  },
+  {
+    name: "GraphQL Tutorial - Official",
+    skill: "GraphQL",
+    price: "FREE",
+    link: "https://graphql.org/learn/",
+  },
+  {
+    name: "Microservices Tutorial - Martin Fowler",
+    skill: "Microservices",
+    price: "FREE",
+    link: "https://martinfowler.com/articles/microservices.html",
+  },
+  {
+    name: "Agile Tutorial - Atlassian",
+    skill: "Agile",
+    price: "FREE",
+    link: "https://www.atlassian.com/agile",
+  },
+  {
+    name: "Scrum Tutorial - Scrum.org",
+    skill: "Scrum",
+    price: "FREE",
+    link: "https://www.scrum.org/resources/what-is-scrum",
+  },
+  {
+    name: "Jira Tutorial - Atlassian",
+    skill: "Jira",
+    price: "FREE",
+    link: "https://www.atlassian.com/software/jira/guides",
+  },
+  {
+    name: "Confluence Tutorial - Atlassian",
+    skill: "Confluence",
+    price: "FREE",
+    link: "https://www.atlassian.com/software/confluence/guides",
+  },
+  {
+    name: "CI/CD Tutorial - GitLab",
+    skill: "CI/CD",
+    price: "FREE",
+    link: "https://docs.gitlab.com/ee/ci/",
+  },
+  {
+    name: "System Design Primer - GitHub",
+    skill: "System Design",
+    price: "FREE",
+    link: "https://github.com/donnemartin/system-design-primer",
+  },
+];
+
+export default RecommendedCoursesInfo;
