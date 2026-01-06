@@ -1,50 +1,46 @@
 import React, { useState } from "react";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../../Utilities/firebase"
 import "./Login.css";
-import google from "/google.png";
 
 const Signup = () => {
-  const [formData, setFormData] = useState({
+  const [form, setForm] = useState({
     fullName: "",
     email: "",
     password: "",
     confirmPassword: ""
   });
 
+  const [error, setError] = useState("");
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  async function handleSignup(e) {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match");
+    setError("");
+
+    if (form.password !== form.confirmPassword) {
+      setError("Passwords do not match");
       return;
     }
 
     try {
-      const res = await fetch("http://localhost:3000/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fullName: formData.fullName,
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
+      const userCred = await createUserWithEmailAndPassword(
+        auth,
+        form.email,
+        form.password
+      );
 
-      const data = await res.json();
-      if (res.ok) {
-        alert("User Registered successful!");
-        localStorage.setItem("token", data.token); // store JWT for auth
-        window.location.href = "/login"; // redirect after login
-      } else {
-        alert(data.message);
-      }
+      // Update user's display name in Firebase
+      await updateProfile(userCred.user, { displayName: form.name });
+
+      alert("Account created");
     } catch (err) {
-      console.error(err);
-      alert("Something went wrong");
+      setError(err.message);
     }
-  };
+  }
 
   return (
     <div className="login-container">
@@ -64,24 +60,42 @@ const Signup = () => {
         <h3>Create your account</h3>
         <p className="subtitle">Get started with your skill analysis journey</p>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSignup}>
           <label>Full Name</label>
-          <input type="text" name="fullName" placeholder="Enter your full name"
-            value={formData.fullName} onChange={handleChange} />
+          <input 
+          type="text" 
+          name="fullName" 
+          placeholder="Enter your full name"
+          value={form.fullName}
+          onChange={handleChange} />
 
           <label>Email</label>
-          <input type="email" name="email" placeholder="Enter your email"
-            value={formData.email} onChange={handleChange} />
+          <input 
+          type="email" 
+          name="email" 
+          placeholder="Enter your email"
+          value={form.email} 
+          onChange={handleChange} />
 
           <label>Password</label>
-          <input type="password" name="password" placeholder="Enter your password"
-            value={formData.password} onChange={handleChange} />
+          <input 
+          type="password" 
+          name="password" 
+          placeholder="Enter your password"
+          value={form.password} 
+          onChange={handleChange} />
 
           <label>Confirm Password</label>
-          <input type="password" name="confirmPassword" placeholder="Confirm your password"
-            value={formData.confirmPassword} onChange={handleChange} />
+          <input 
+          type="password" 
+          name="confirmPassword" 
+          placeholder="Confirm your password"
+          value={form.confirmPassword} 
+          onChange={handleChange} />
 
           <button type="submit" className="primary-btn">Create Account</button>
+
+          {error && <p>{error}</p>}
         </form>
 
         <p className="signin-text">

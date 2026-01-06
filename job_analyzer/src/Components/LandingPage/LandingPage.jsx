@@ -23,7 +23,7 @@ const LandingPage = () => {
         </p>
         <div className="hero-buttons">
           <button>
-            <Link to="/analzer" className="btn-dark"><Upload /> Upload Resume</Link>
+            <Link to="/analyzer" className="btn-dark"><Upload /> Upload Resume</Link>
           </button>
           <button>
             <Link to="/analyzer" className="btn-light"><Search /> Analyze Job Description</Link>

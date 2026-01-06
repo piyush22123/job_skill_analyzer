@@ -92,7 +92,7 @@ const AnalyzePage = () => {
         <div className="app-content">
           <div className="grid-container">
             <div className="left-section">
-              <div className="card">
+              <div className="card mb-2">
                 <h2 className="card-title"><Upload />Upload Resume</h2>
                 <div {...getRootProps()} className="dropzone">
                   <input {...getInputProps()} />
@@ -185,16 +185,6 @@ const AnalyzePage = () => {
 
                 </div>
               </div>
-
-              {/* <div className="card">
-              <h2 className="card-title">Extracted Information</h2>
-              <div className="info">
-                <p><strong>Name:</strong> {name}</p>
-                <p><strong>Education:</strong> {education}</p>
-                <p><strong>Experience:</strong> {experience}</p>
-                <p><strong>Skills:</strong> {skills}</p>
-              </div>
-            </div> */}
 
 
             </div>

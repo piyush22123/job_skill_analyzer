@@ -1,40 +1,25 @@
 import React, { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../Utilities/firebase";
 import "./Login.css";
-import google from "/google.png";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: ""
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    try {
-      const res = await fetch("http://localhost:3000/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
 
-      const data = await res.json();
-      if (res.ok) {
-        alert("Login successful!");
-        localStorage.setItem("token", data.token); // store JWT for auth
-        window.location.href = "/analyzer"; // redirect after login
-      } else {
-        alert("wrong email/password");
-      }
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/analyzer')
+      alert("Login succesful");
     } catch (err) {
-      console.error(err);
-      alert("Something went wrong");
+      setError(err.message);
     }
   };
 
@@ -56,16 +41,26 @@ const Login = () => {
         <h3>Login your account</h3>
         <p className="subtitle">Get started with your skill analysis journey</p>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleLogin}>
           <label>Email</label>
-          <input type="email" name="email" placeholder="Enter your email"
-            value={formData.email} onChange={handleChange} />
+          <input 
+          type="email" 
+          name="email" 
+          placeholder="Enter your email"
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)} />
 
           <label>Password</label>
-          <input type="password" name="password" placeholder="Enter your password"
-            value={formData.password} onChange={handleChange} />
+          <input 
+          type="password" 
+          name="password" 
+          placeholder="Enter your password"
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} />
 
           <button type="submit" className="primary-btn">Login</button>
+
+          {error && <p>{error}</p>}
         </form>
 
         <p className="signin-text">
