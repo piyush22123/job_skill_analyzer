@@ -43,11 +43,11 @@ const AnalyzePage = () => {
     const formData = new FormData();
     formData.append("resume", resume);
     formData.append("jobDescription", jobDescription);
-// https://job-skill-analyzer-06wr.onrender.com
+
     try {
       setLoading(true);
       setError("");
-      const res = await axios.post("http://localhost:3000/upload", formData, {
+      const res = await axios.post("https://job-skill-analyzer-06wr.onrender.com/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
