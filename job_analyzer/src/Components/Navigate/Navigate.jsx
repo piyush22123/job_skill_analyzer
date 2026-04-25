@@ -23,7 +23,7 @@ const Navigate = () => {
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="lucide lucide-chart-column h-8 w-8 text-blue-600"
+            className="lucide lucide-chart-column h-8 w-8 text-blue-600"
           >
             <path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
             <path d="M18 17V9"></path>

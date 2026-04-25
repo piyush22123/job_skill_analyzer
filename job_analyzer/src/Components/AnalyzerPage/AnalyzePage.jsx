@@ -8,6 +8,7 @@ import { Pie } from "react-chartjs-2";
 import "chart.js/auto";
 import "./AnalyzePage.css";
 import Footer from "../Footer/Footer";
+import Feedback from "../Feedback";
 
 
 const AnalyzePage = () => {
@@ -42,11 +43,11 @@ const AnalyzePage = () => {
     const formData = new FormData();
     formData.append("resume", resume);
     formData.append("jobDescription", jobDescription);
-
+// https://job-skill-analyzer-06wr.onrender.com
     try {
       setLoading(true);
       setError("");
-      const res = await axios.post("https://job-skill-analyzer-06wr.onrender.com/upload", formData, {
+      const res = await axios.post("http://localhost:3000/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -57,8 +58,8 @@ const AnalyzePage = () => {
       console.log("frontend data", res.data);
     } catch (err) {
       console.error("Error analyzing resume:", err);
-      setError("Failed to analyze. Is the backend running on :3000?");
-    } finally {
+      console.error(err);
+      setError(err.response?.data || "AI failed to analyze");    } finally {
       setLoading(false);
     }
   };
@@ -188,6 +189,12 @@ const AnalyzePage = () => {
 
 
             </div>
+            )}
+
+            {result && (
+              <div className="feedback-section">
+                <Feedback feedback={result.feedback || []} />
+              </div>
             )}
           </div>
         </div>
