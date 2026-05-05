@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../../Utilities/firebase"
+import axios from "axios";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
+
 
 const Signup = () => {
   const [form, setForm] = useState({
@@ -12,6 +13,7 @@ const Signup = () => {
   });
 
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -27,22 +29,32 @@ const Signup = () => {
     }
 
     try {
-      const userCred = await createUserWithEmailAndPassword(
-        auth,
-        form.email,
-        form.password
-      );
+      // Register user
+      await axios.post("http://localhost:3000/api/auth/register", {
+        name: form.fullName,
+        email: form.email,
+        password: form.password
+      });
 
-      // Update user's display name in Firebase
-      await updateProfile(userCred.user, { displayName: form.name });
+      //auto login afte r signup
+      const res = await axios.post("http://localhost:3000/api/auth/login", {
+        email: form.email,
+        password: form.password
+      });
 
-      alert("Account created");
+      localStorage.setItem("token", res.data.token);
+
+      alert("Account created successfully");
+      navigate("/analyzer");
+
     } catch (err) {
-      setError(err.message);
+      console.log(err);
+      setError(err.response?.data?.message || "Signup failed");
     }
-  }
+  };
 
   return (
+    <div className="bg-sky-100 flex h-[100vh] items-center justify-center">
     <div className="login-container">
       <div className="form-card">
         <a href="/" className="back-link">← Back to Home</a>
@@ -102,6 +114,7 @@ const Signup = () => {
           Already have an account? <a href="/login">Sign in</a>
         </p>
       </div>
+    </div>
     </div>
   );
 };

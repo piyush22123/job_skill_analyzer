@@ -16,15 +16,27 @@ async function uploadResume(req, res) {
     const aiRaw = await analyzeResume(resumeText, jobDescription);
 
     let aiResult;
+
     try {
-      aiResult = JSON.parse(aiRaw);
-      console.log(aiResult)
+      const cleaned = aiRaw
+        .replace(/```json/g, "")
+        .replace(/```/g, "")
+        .trim();
+
+      aiResult = JSON.parse(cleaned);
+
+      console.log("Parsed AI Result:", aiResult);
     } catch (err) {
-      console.error("AI parsing error:", aiRaw);
-      return res.status(500).send("AI response parsing failed");
+      console.error(" AI parsing error:", err);
+      console.error(" Raw AI response:", aiRaw);
+
+      return res.status(500).json({
+        message: "AI response parsing failed",
+        raw: aiRaw,
+      });
     }
 
-    // 3. Send response
+    // Send response
     res.json({
       resumeText,
       jobDescription,

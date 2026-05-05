@@ -6,7 +6,7 @@ import Contact from "./Components/Contact/Contact";
 import Signup from "./Components/Login/Signup";
 import Login from "./Components/Login/Login";
 import Courses from "./Components/Courses/Courses";
-import ProtectedRoute from "./Components/ProtectedRoute"; // ← new
+// import ProtectedRoute from "./Components/ProtectedRoute"; // ← new
 import "./App.css";
 
 function App() {
@@ -21,27 +21,27 @@ function App() {
         <Route
           path="/analyzer"
           element={
-            <ProtectedRoute>
+            // <ProtectedRoute>
               <AnalyzePage />
-            </ProtectedRoute>
+            // </ProtectedRoute>
           }
         />
 
         <Route
           path="/contact"
           element={
-            <ProtectedRoute>
+            // <ProtectedRoute>
               <Contact />
-            </ProtectedRoute>
+            // </ProtectedRoute> 
           }
         />
 
         <Route
           path="/courses"
           element={
-            <ProtectedRoute>
+            // <ProtectedRoute>
               <Courses />
-            </ProtectedRoute>
+            // </ProtectedRoute> 
           }
         />
 

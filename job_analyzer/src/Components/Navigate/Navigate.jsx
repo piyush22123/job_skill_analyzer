@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Profile from "../profile/Profile";
+import Login from "../Login/Login";
 // import { auth } from '../../Utilities/firebase'
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from "@clerk/clerk-react";
+// import {
+//   SignedIn,
+//   SignedOut,
+//   SignInButton,
+//   UserButton,
+// } from "@clerk/clerk-react";
 
 const Navigate = () => {
+  const token = localStorage.getItem("token");
   return (
     <div className="navContainer">
       <nav className="navbar">
@@ -41,13 +44,23 @@ const Navigate = () => {
               Get Started
             </Link>
           </button>
-          <SignedOut>
+          {/* <SignedOut>
             <SignInButton />
           </SignedOut>
 
           <SignedIn>
             <div className=""><UserButton /></div>
-          </SignedIn>
+          </SignedIn> */}
+          
+           {/* Conditional Rendering */}
+          {token ? (
+            <Profile />
+          ) : (
+            <Link to="/login" className="btn-black">
+              Login
+            </Link>
+          )}
+        
         </div>
       </nav>
     </div>

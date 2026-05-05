@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../Utilities/firebase";
+import axios from "axios";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 
@@ -15,15 +14,27 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate('/analyzer')
-      alert("Login succesful");
+      const res = await axios.post("http://localhost:3000/api/auth/login", {
+        email,
+        password
+      });
+
+      // ✅ store token
+      localStorage.setItem("token", res.data.token);
+
+      alert("Login successful");
+
+      // ✅ redirect
+      navigate("/analyzer");
+
     } catch (err) {
-      setError(err.message);
+      console.log(err);
+      setError(err.response?.data?.message || "Login failed");
     }
   };
 
   return (
+    <div className="bg-sky-100 h-[100vh] flex items-center justify-center">
     <div className="login-container">
       <div className="form-card">
         <a href="/" className="back-link">← Back to Home</a>
@@ -67,6 +78,7 @@ const Login = () => {
           Don't have an account? <a href="/signup">Sign Up</a>
         </p>
       </div>
+    </div>
     </div>
   );
 };

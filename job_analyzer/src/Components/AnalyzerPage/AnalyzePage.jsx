@@ -43,12 +43,18 @@ const AnalyzePage = () => {
     const formData = new FormData();
     formData.append("resume", resume);
     formData.append("jobDescription", jobDescription);
-
+//https://job-skill-analyzer-06wr.onrender.com/upload
     try {
       setLoading(true);
       setError("");
-      const res = await axios.post("https://job-skill-analyzer-06wr.onrender.com/upload", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+
+      const token = localStorage.getItem("token");
+      
+      const res = await axios.post("http://localhost:3000/upload", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`
+         },
       });
 
       // Backend dummy fields:
@@ -122,6 +128,17 @@ const AnalyzePage = () => {
               >
                 {loading ? "Analyzing..." : "Analyze Skills"}
               </button>
+
+
+              {result? (
+              <div className="feedback-section">
+                <Feedback feedback={result.feedback || []} />
+              </div>
+            ):
+            (
+              <p className="mt-5 text-red-500">No Feedback Available</p>
+            )
+            }
             </div>
 
 
@@ -191,11 +208,7 @@ const AnalyzePage = () => {
             </div>
             )}
 
-            {result && (
-              <div className="feedback-section">
-                <Feedback feedback={result.feedback || []} />
-              </div>
-            )}
+            
           </div>
         </div>
       </div>

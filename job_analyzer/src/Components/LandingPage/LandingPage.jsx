@@ -15,10 +15,10 @@ const LandingPage = () => {
       {/* Hero Section */}
       <header className="hero">
         <h1>
-          Analyze Your Skills, <span className="highlight">Land Your Dream Job</span>
+          Analyze Your Resume with AI, <span className="highlight">Land Your Dream Job</span>
         </h1>
         <p>
-          Upload your resume and job descriptions to get detailed compatibility analysis,
+          Upload your resume and job descriptions to get detailed compatibility analysis with AI,
           skill gap identification, and personalized course recommendations.
         </p>
         <div className="hero-buttons">
@@ -51,7 +51,7 @@ const LandingPage = () => {
           <div className="card">
             <div className="icon purple"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-column h-6 w-6 text-purple-600"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg></div>
             <h3>Skill Gap Analysis</h3>
-            <p>Identify missing skills and get prioritized recommendations for skill development and learning.</p>
+            <p>Identify missing skills and get prioritized recommendations for skill development and learning thorugh AI feedback.</p>
           </div>
           <div className="card">
             <div className="icon orange"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open h-6 w-6 text-orange-600"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg></div>

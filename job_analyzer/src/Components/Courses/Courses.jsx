@@ -4,13 +4,14 @@ import { ExternalLink } from "lucide-react";
 import RecommendedCoursesInfo from "./RecommendedCoursesInfo.js";
 import Navigate from "../Navigate/Navigate.jsx";
 import Footer from "../Footer/Footer.jsx";
+import Login from "../Login/Login.jsx";
 
 const Courses = () => {
   const location = useLocation();
   const result = location.state?.result;
+  const token = localStorage.getItem("token");
 
-
-  return (
+  return(
     <div className="main">
       <Navigate />
       <div className="p-8 bg-gray-50 min-h-screen">
