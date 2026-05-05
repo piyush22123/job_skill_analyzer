@@ -9,6 +9,7 @@ import "chart.js/auto";
 import "./AnalyzePage.css";
 import Footer from "../Footer/Footer";
 import Feedback from "../Feedback";
+import API from "../../services/api";
 
 
 const AnalyzePage = () => {
@@ -47,13 +48,10 @@ const AnalyzePage = () => {
     try {
       setLoading(true);
       setError("");
-
-      const token = localStorage.getItem("token");
       
-      const res = await axios.post("https://job-skill-analyzer-06wr.onrender.com/upload", formData, {
+      const res = await API.post("/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`
          },
       });
 
