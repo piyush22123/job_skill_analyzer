@@ -9,10 +9,10 @@ async function uploadResume(req, res) {
 
     const jobDescription = req.body.jobDescription || "";
 
-    // 1. Extract text
+    // Extract text
     const resumeText = await extractText(req.file.buffer);
 
-    // 2. AI analysis
+    // AI analysis
     const aiRaw = await analyzeResume(resumeText, jobDescription);
 
     let aiResult;

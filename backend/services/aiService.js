@@ -2,39 +2,57 @@ const groq = require("../config/groqClient");
 
 async function analyzeResume(resumeText, jobDescription) {
   const prompt = `
-You are an ATS (Applicant Tracking System).
+You are an ATS resume analyzer.
 
-Instructions:
-1. Extract skills from the resumeText.
-2. Extract required skills from the jobDescription.
+TASK:
+You must STRICTLY compare skills between the resume and the job description.
 
-Now compare:
+STEP 1:
+Extract technical skills explicitly mentioned in the RESUME.
 
-- matching_skills = skills present in BOTH resumeText and jobDescription
-- missing_skills = skills present in jobDescription BUT NOT in resumeText
+STEP 2:
+Extract required technical skills explicitly mentioned in the JOB DESCRIPTION.
 
-Important rules:
-- Do NOT invent skills
-- Do NOT include skills that are only in resumeText inside missing_skills
-- Only compare based on job requirements
+STEP 3:
+Compare them using STRICT matching.
 
-Also:
-- score = percentage (0–100) based on how many jobDescription skills are matched
-- feedback = 3–5 short improvement suggestions. If no missing skills then give resume improvement suggestion.
+RULES:
+- matching_skills = ONLY skills found in BOTH resume and job description
+- missing_skills = ONLY skills found in job description BUT NOT found in resume
+- NEVER add resume-only skills into missing_skills
+- NEVER invent skills
+- NEVER assume related technologies
+- If "React" exists, do NOT assume "Redux"
+- If "Node.js" exists, do NOT assume "Express"
+- Use exact comparison as much as possible
+- Ignore soft skills
+- Focus only on technical/job-related skills
 
-Return ONLY valid JSON (no markdown, no explanation):
+SCORING:
+score = (matched skills / total required job skills) * 100
+
+FEEDBACK RULES:
+- Give 3 to 5 short suggestions
+- Suggestions should focus ONLY on missing skills
+- If no missing skills exist, suggest resume improvements
+
+IMPORTANT:
+Return ONLY valid raw JSON.
+Do NOT return markdown.
+Do NOT add explanation text.
+
+FORMAT:
 {
   "matching_skills": [],
   "missing_skills": [],
-  "score": number,
+  "score": 0,
   "feedback": []
 }
 
-
-Resume:
+RESUME:
 ${resumeText}
 
-Job Description:
+JOB DESCRIPTION:
 ${jobDescription}
 `;
 
